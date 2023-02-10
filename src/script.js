@@ -6,6 +6,16 @@ import * as dat from 'lil-gui'
 import { Material } from 'three'
 
 /**
+ * Parameters
+ */
+const parameters = {
+    color: 0x35453b,
+    spin: () => {
+        gsap.to(mesh.rotation, {duration: 1, y: mesh.rotation.y + 10})
+    }
+}
+
+/**
  * Base
  */
 // Debug
@@ -25,7 +35,39 @@ const scene = new THREE.Scene()
  * Textures
  */
 const textureLoader = new THREE.TextureLoader()
-const matcapTexture = textureLoader.load('/textures/matcaps/8.png')
+const cubeTextureLoader = new THREE.CubeTextureLoader()
+
+const matcapTexture = textureLoader.load('/textures/matcaps/5.png')
+const matcapSphereTexture = textureLoader.load('/textures/matcaps/8.png')
+const matcap3Texture = textureLoader.load('/textures/matcaps/3.png')
+// textureLoader.load('https://images.pexels.com/photos/1205301/pexels-photo-1205301.jpeg' , function(texture)
+//             {
+//              scene.background = texture;  
+//             });
+
+// const environmentMapTexture = cubeTextureLoader.load([
+//     '/textures/environmentMaps/0/px.png',
+//     '/textures/environmentMaps/0/nx.png',
+//     '/textures/environmentMaps/0/py.png',
+//     '/textures/environmentMaps/0/ny.png',
+//     '/textures/environmentMaps/0/pz.png',
+//     '/textures/environmentMaps/0/nz.png',
+// ])
+
+/**
+ * Mesh
+ */
+let text = new THREE.Mesh()
+
+/**
+ * Lights
+ */
+const ambientLight = new THREE.AmbientLight(0xffffff, 1)
+const pointLight = new THREE.PointLight(0xffffff, 1)
+pointLight.position.x = 1
+pointLight.position.y = 4
+pointLight.position.z = 6
+scene.add(ambientLight, pointLight)
 
 /**
  * Fonts
@@ -35,12 +77,12 @@ fontLoader.load(
     '/font/helvetiker_regular.typeface.json',
     (font) => {
         const textGeometry = new TextGeometry(
-            'Web Developer',
+            'Web Developer\nPierre-Joseph\nBEAUGENDRE',
             {
                 font,
                 size: 0.5,
                 height: 0.2,
-                curveSegments: 5,
+                curveSegments: 20,
                 bevelEnabled: true,
                 bevelThickness: 0.03,
                 bevelSize: 0.02,
@@ -51,29 +93,54 @@ fontLoader.load(
         textGeometry.computeBoundingBox()
         textGeometry.center()
 
-        const material = new THREE.MeshMatcapMaterial({matcap: matcapTexture})
+        // Material
+        const textMaterial = new THREE.MeshNormalMaterial()
+        const formMaterial = new THREE.MeshNormalMaterial()
+        const materialSphere = new THREE.MeshMatcapMaterial({matcap: matcapSphereTexture})
+
+        formMaterial.wireframe = true
+        // textMaterial.metalness = 1
+        // textMaterial.roughness = 0.1
+        // textMaterial.envMap = environmentMapTexture
+
         // material.wireframe = false
-        const text = new THREE.Mesh(textGeometry, material)
+        text = new THREE.Mesh(textGeometry, textMaterial)
         scene.add(text)
 
         const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45)
+        const SphereGeometry = new THREE.SphereGeometry(0.5, 26, 26)
 
-        for (let i = 0; i < 200; i++) {
-            const donut = new THREE.Mesh(donutGeometry, material)
-            donut.position.x = (Math.random() - 0.5) * 10
-            donut.position.y = (Math.random() - 0.5) * 10
-            donut.position.z = (Math.random() - 0.5) * 10
+        for (let i = 0; i < 400; i++) {
+            if (Math.random() <= 0.5) {
+                console.log('torus')
+                const donut = new THREE.Mesh(donutGeometry, formMaterial)
+                donut.position.x = (Math.random() - 0.5) * 20
+                donut.position.y = (Math.random() - 0.5) * 20
+                donut.position.z = (Math.random() - 0.5) * 20
 
-            donut.rotation.x = (Math.random() * Math.PI)
-            donut.rotation.y = (Math.random() * Math.PI)
+                donut.rotation.x = (Math.random() * Math.PI)
+                donut.rotation.y = (Math.random() * Math.PI)
 
-            const scale = Math.random()
-            donut.scale.set(scale, scale, scale)
+                const scale = Math.random()
+                donut.scale.set(scale, scale, scale)
 
-            scene.add(donut)
+                scene.add(donut)
+            } else {
+                console.log('sphere')
+                const sphere = new THREE.Mesh(SphereGeometry, formMaterial)
+                sphere.position.x = (Math.random() - 0.5) * 20
+                sphere.position.y = (Math.random() - 0.5) * 20
+                sphere.position.z = (Math.random() - 0.5) * 20
+
+                const scale = Math.random()
+                sphere.scale.set(scale, scale, scale)
+
+                scene.add(sphere)
+            }
         }
     }
 )
+console.log(fontLoader)
 
 /**
  * Object
@@ -113,14 +180,20 @@ window.addEventListener('resize', () =>
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.x = 1
+camera.position.x = -2
 camera.position.y = 1
-camera.position.z = 2
+camera.position.z = 6
 scene.add(camera)
 
 // Controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
+controls.minAzimuthAngle = - (Math.PI * 0.4)
+controls.maxAzimuthAngle = (Math.PI * 0.4)
+controls.maxDistance = 9
+controls.minDistance = 3.5
+controls.maxPolarAngle = Math.PI * 0.9
+controls.minPolarAngle = Math.PI * 0.1
 
 /**
  * Renderer
@@ -130,6 +203,7 @@ const renderer = new THREE.WebGLRenderer({
 })
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+renderer.setClearColor(parameters.color, 1)
 
 /**
  * Animate
@@ -143,6 +217,9 @@ const tick = () =>
     // Update controls
     controls.update()
 
+    // Text animation
+    //text.rotation.x = Math.sin(elapsedTime * 0.1)
+
     // Render
     renderer.render(scene, camera)
 
@@ -151,3 +228,10 @@ const tick = () =>
 }
 
 tick()
+
+/**
+ * GUI
+ */
+gui.addColor(parameters, 'color').onChange(() => {
+    renderer.setClearColor(parameters.color)
+})
