@@ -77,7 +77,7 @@ fontLoader.load(
     '/font/helvetiker_regular.typeface.json',
     (font) => {
         const textGeometry = new TextGeometry(
-            'Web Developer\nPierre-Joseph\nBEAUGENDRE',
+            'Fullstack Developer\nPierre-Joseph\nBEAUGENDRE',
             {
                 font,
                 size: 0.5,
