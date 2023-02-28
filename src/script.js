@@ -3,7 +3,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import {FontLoader} from 'three/examples/jsm/loaders/FontLoader.js'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js'
 import * as dat from 'lil-gui'
-import { Material } from 'three'
 
 /**
  * Parameters
@@ -77,7 +76,7 @@ fontLoader.load(
     '/font/helvetiker_regular.typeface.json',
     (font) => {
         const textGeometry = new TextGeometry(
-            'Web Developer\nPierre-Joseph\nBEAUGENDRE',
+            'Full-stack Developer\nPierre-Joseph\nBEAUGENDRE',
             {
                 font,
                 size: 0.5,
@@ -110,13 +109,13 @@ fontLoader.load(
         const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 20, 45)
         const SphereGeometry = new THREE.SphereGeometry(0.5, 26, 26)
 
-        for (let i = 0; i < 400; i++) {
+        for (let i = 0; i < 600; i++) {
             if (Math.random() <= 0.5) {
-                console.log('torus')
+                // console.log('torus')
                 const donut = new THREE.Mesh(donutGeometry, formMaterial)
-                donut.position.x = (Math.random() - 0.5) * 20
-                donut.position.y = (Math.random() - 0.5) * 20
-                donut.position.z = (Math.random() - 0.5) * 20
+                donut.position.x = (Math.random() - 0.5) * 50
+                donut.position.y = (Math.random() - 0.5) * 50
+                donut.position.z = (Math.random() - 0.5) * 50
 
                 donut.rotation.x = (Math.random() * Math.PI)
                 donut.rotation.y = (Math.random() * Math.PI)
@@ -126,11 +125,11 @@ fontLoader.load(
 
                 scene.add(donut)
             } else {
-                console.log('sphere')
+                // console.log('sphere')
                 const sphere = new THREE.Mesh(SphereGeometry, formMaterial)
-                sphere.position.x = (Math.random() - 0.5) * 20
-                sphere.position.y = (Math.random() - 0.5) * 20
-                sphere.position.z = (Math.random() - 0.5) * 20
+                sphere.position.x = (Math.random() - 0.5) * 50
+                sphere.position.y = (Math.random() - 0.5) * 50
+                sphere.position.z = (Math.random() - 0.5) * 50
 
                 const scale = Math.random()
                 sphere.scale.set(scale, scale, scale)
@@ -183,17 +182,18 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 
 camera.position.x = -2
 camera.position.y = 1
 camera.position.z = 6
+camera.lookAt( scene.position );
 scene.add(camera)
 
 // Controls
-const controls = new OrbitControls(camera, canvas)
-controls.enableDamping = true
-controls.minAzimuthAngle = - (Math.PI * 0.4)
-controls.maxAzimuthAngle = (Math.PI * 0.4)
-controls.maxDistance = 9
-controls.minDistance = 3.5
-controls.maxPolarAngle = Math.PI * 0.9
-controls.minPolarAngle = Math.PI * 0.1
+// const controls = new OrbitControls(camera, canvas)
+// controls.enableDamping = true
+// controls.minAzimuthAngle = - (Math.PI * 0.4)
+// controls.maxAzimuthAngle = (Math.PI * 0.4)
+// controls.maxDistance = 9
+// controls.minDistance = 3.5
+// controls.maxPolarAngle = Math.PI * 0.9
+// controls.minPolarAngle = Math.PI * 0.1
 
 /**
  * Renderer
@@ -206,6 +206,19 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 renderer.setClearColor(parameters.color, 1)
 
 /**
+ * Mouse events
+ */
+const mousePosition = {
+    x: 0,
+    y: 0,
+}
+
+addEventListener('mousemove', (event) => {
+    mousePosition.x = (event.clientX - sizes.width * 0.5) * 0.5
+    mousePosition.y = (event.clientY - sizes.height * 0.5) * 0.5
+});
+
+/**
  * Animate
  */
 const clock = new THREE.Clock()
@@ -215,10 +228,16 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Update controls
-    controls.update()
+    //controls.update()
 
     // Text animation
     //text.rotation.x = Math.sin(elapsedTime * 0.1)
+
+    // Update Camera position
+    camera.position.x = ( mousePosition.x - camera.position.x ) * .04;
+    camera.position.y = ( mousePosition.y - camera.position.y ) * .04;
+    camera.lookAt(scene.position)
+
 
     // Render
     renderer.render(scene, camera)
