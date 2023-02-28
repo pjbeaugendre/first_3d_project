@@ -10,5 +10,15 @@
   <body>
     <canvas class="webgl"></canvas>
     <script type="module" src="./script.js"></script>
+    <script>
+      const toProfile = (link) => {
+        window.location.href = link;
+      };
+    </script>
+    <!-- <div class="navigation">
+      <div onclick="toProfile('profile.html')">Mon Profil</div>
+      <div onclick="toProfile('projects.html')">Mes Projets</div>
+      <div onclick="toProfile('contact.html')">Me Contacter</div>
+    </div> -->
   </body>
 </html>
