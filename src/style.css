@@ -17,3 +17,9 @@ body
     left: 0;
     outline: none;
 }
+
+.point {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+}
