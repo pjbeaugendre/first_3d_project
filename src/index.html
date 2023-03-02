@@ -4,21 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PJ Beaugendre</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="icon" href="logo_pj.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <script type="text/javascript">
+      window.addEventListener(
+        "error",
+        function (e) {
+          console.log("oui");
+        },
+        true
+      );
+    </script>
     <canvas class="webgl"></canvas>
-    <script type="module" src="./script.js"></script>
+    <script type="module" src="js/script.js"></script>
     <script>
       const toProfile = (link) => {
         window.location.href = link;
       };
     </script>
-    <!-- <div class="navigation">
-      <div onclick="toProfile('profile.html')">Mon Profil</div>
-      <div onclick="toProfile('projects.html')">Mes Projets</div>
-      <div onclick="toProfile('contact.html')">Me Contacter</div>
-    </div> -->
+    <div class="navigation">
+      <div onclick="toProfile('/')" class="hover-underline-animation">
+        Mon Profil
+      </div>
+      <div onclick="toProfile('/')" class="hover-underline-animation">
+        Mes Projets
+      </div>
+      <div onclick="toProfile('/')" class="hover-underline-animation">
+        Me Contacter
+      </div>
+    </div>
   </body>
 </html>
