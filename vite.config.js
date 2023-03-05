@@ -6,6 +6,9 @@ export default defineConfig({
     base: './',
     publicDir: '../static/',
     build: {
+        outDir: '../dist',
+        emptyOutDir: true,
+        sourcemap: true,
         rollupOptions: {
             input: {
                 main: resolve(__dirname, 'src/index.html'),
