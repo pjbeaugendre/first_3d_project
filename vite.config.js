@@ -1,18 +1,18 @@
-const isCodeSandbox = 'SANDBOX_URL' in process.env || 'CODESANDBOX_HOST' in process.env
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
 
-export default {
+export default defineConfig({
     root: 'src/',
-    publicDir: '../static/',
     base: './',
-    server:
-    {
-        host: true,
-        open: !isCodeSandbox // Open if it's not a CodeSandbox
-    },
-    build:
-    {
-        outDir: '../dist',
-        emptyOutDir: true,
-        sourcemap: true
+    publicDir: '../static/',
+    build: {
+        rollupOptions: {
+        input: {
+            main: resolve(__dirname, 'src/index.html'),
+            contact: resolve(__dirname, 'src/contact.html'),
+            profile: resolve(__dirname, 'src/profile.html'),
+            projects: resolve(__dirname, 'src/projects.html')
+        }
+        }
     }
-}
+})

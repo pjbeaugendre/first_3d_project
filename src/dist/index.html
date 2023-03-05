@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PJ Beaugendre</title>
+    
+    <link rel="icon" href="logo_pj.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="./assets/main-5371e696.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/style-787b6ae2.js">
+    <link rel="stylesheet" href="./assets/style-a53ee0bb.css">
+  </head>
+  <body>
+    <script type="text/javascript">
+      window.addEventListener(
+        "error",
+        function (e) {
+          console.log("oui");
+        },
+        true
+      );
+    </script>
+    <canvas class="webgl"></canvas>
+    
+    <script>
+      const toProfile = (link) => {
+        window.location = link;
+        return true;
+      };
+    </script>
+    <div class="navigation">
+      <div
+        onclick="toProfile('profile.html')"
+        class="hover-underline-animation"
+      >
+        Profil
+      </div>
+      <div onclick="toProfile('/')" class="hover-underline-animation">
+        Projets
+      </div>
+      <div onclick="toProfile('/')" class="hover-underline-animation">
+        Contact
+      </div>
+    </div>
+  </body>
+</html>
