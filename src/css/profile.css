@@ -111,8 +111,8 @@ body {
 .mail-adress {
     background-color: #35453b;
     color: white;
-    width: 400px;
-    height: 50px;
+    width: 390px;
+    height: 45px;
     font-size: 18px;
     display: flex;
     align-items: center;
@@ -168,6 +168,14 @@ body {
     font-weight: 600;
     font-size: 24px;
     margin-bottom: 20px;
+}
+
+.contact-logos a svg {
+    transition: .7s;
+}
+
+.contact-logos a svg:hover {
+    transform: scale(1.1, 1.1);
 }
 
 .division {
@@ -292,6 +300,22 @@ footer {
 
     .technologies-logo svg {
         min-width: 20%;
+    }
+
+    .mail-adress {
+        width: 250px;
+        height: 40px;
+        font-size: 10px;
+    }
+
+    .mail-adress::before {
+        height: 41px;
+        width: 200px;
+    }
+    
+    .mail-adress::after {
+        height: 20px;
+        width: 252px;
     }
 
     footer {
