@@ -15,7 +15,8 @@ body {
     width: 900px;
     height: 100%;
     margin: auto;
-    padding: 40px 10px;
+    padding-top: 100px;
+    padding-inline: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -42,6 +43,7 @@ body {
     font-size: 15px;
     margin-top: 15px;
     text-align: justify;
+    line-height: 1.5;
 }
 
 .presentation-picture {
@@ -59,7 +61,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 75px;
+    margin-top: 0px;
     padding: 10px 0;
 }
 
@@ -89,6 +91,167 @@ body {
 
 .technologies-logo svg:hover {
     transform: scale(1.1, 1.1);
+}
+
+.mail {
+    line-height: 3;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mail p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.mail-adress {
+    background-color: #35453b;
+    color: white;
+    width: 400px;
+    height: 50px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    transition: 1s;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+}
+
+.mail-adress::before, .mail-adress::after {
+    content: '';
+    background-color:#35453b;
+    position: absolute;
+    transition: 0.7s;
+    z-index: -1;
+}
+
+.mail-adress::before {
+    height: 50px;
+    width: 350px;
+}
+
+.mail-adress:hover::before{
+    width: 0;
+}
+
+.mail-adress::after {
+    height: 30px;
+    width: 400px;
+}
+
+.mail-adress:hover::after {
+    height: 0px;
+}
+
+.mail-adress:hover {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+}
+
+.contact-p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.division {
+    position: relative;
+	background: transparent;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	height: 100px;
+    margin: 75px 0px;
+	place-items: center; 
+}
+
+.division::before {
+	animation: anim 30s infinite;
+	background: radial-gradient(circle at 0% 0%, #FF786E, rgb(167, 21, 21));
+	border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+	box-shadow: 0 -2vmin 4vmin #FF9F20 inset, 0 1vmin 4vmin #e7ad42 inset,
+		0 -2vmin 7vmin #b4500d inset;
+	content: "";
+	height: 150px;
+	width: 150px;
+}
+
+@keyframes anim {
+	0%,
+	100% {
+		border-radius: 30% 70% 70% 30% / 30% 52% 48% 70%;
+		box-shadow: 0 -2vmin 4vmin #FF9F20 inset, 0 -4vmin 4vmin #e7ad42 inset,
+			0 -2vmin 7vmin #b4500d inset;
+	}
+
+	10% {
+		border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
+	}
+
+	20% {
+		border-radius: 67% 33% 47% 53% / 37% 20% 80% 63%;
+	}
+
+	30% {
+		border-radius: 39% 61% 47% 53% / 37% 40% 60% 63%;
+		box-shadow: 0 -4vmin 8vmin #FF786E inset, -1vmin -2vmin 6vmin #FF9F20 inset,
+			-1vmin -2vmin 4vmin #e7ad42 inset, 1vmin 4vmin 8vmin #b4500d inset;
+	}
+
+	40% {
+		border-radius: 39% 61% 82% 18% / 74% 40% 60% 26%;
+	}
+
+	50% {
+		border-radius: 100%;
+		box-shadow: 0 4vmin 16vmin #FF786E inset, 0 2vmin 5vmin #FF9F20 inset, 0 4vmin 4vmin #2e76d4 inset,
+			0 6vmin 8vmin #b4500d inset;
+	}
+
+	60% {
+		border-radius: 50% 50% 53% 47% / 72% 69% 31% 28%;
+	}
+
+	70% {
+		border-radius: 50% 50% 53% 47% / 26% 22% 78% 74%;
+		box-shadow: 1vmin 1vmin 8vmin #FF9F20 inset,
+			2vmin -1vmin 4vmin #e7ad42 inset, -1vmin -1vmin 16vmin #b4500d inset;
+	}
+
+	80% {
+		border-radius: 50% 50% 53% 47% / 26% 69% 31% 74%;
+	}
+
+	90% {
+		border-radius: 20% 80% 20% 80% / 20% 80% 20% 80%;
+	}
+}
+
+.ou {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #35453b;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 34px;
 }
 
 footer {

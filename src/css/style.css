@@ -52,7 +52,6 @@ body
     letter-spacing: 1px;
     text-transform: uppercase;
     color: white;
-    cursor: pointer;
     margin-bottom: 5px;
     width: fit-content;
 }

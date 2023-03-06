@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "lil-gui": "^0.17.0",
+    "mouseee": "^1.2.0",
     "three": "^0.148.0",
     "vercel": "^28.15.3"
   }

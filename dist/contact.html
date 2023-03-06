@@ -1,14 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pj Beaugendre - Contact</title>
     <link rel="icon" href="logo_pj.png" />
-    <link rel="stylesheet" href="./style.css" />
+    
+    
+    
+    <script type="module" crossorigin src="./assets/modulepreload-polyfill-ec808ebb.js"></script>
+    <script type="module" crossorigin src="./assets/navbarjs-0927fc72.js"></script>
+    <link rel="stylesheet" href="./assets/style-6a489076.css">
+    <link rel="stylesheet" href="./assets/profile-68134427.css">
+    <link rel="stylesheet" href="./assets/navigation-45eab72b.css">
   </head>
   <body>
-    <div class="profile">Oui</div>
+    <header>
+      <a href="/">
+        <img src="logo_pj.png" class="logo"></img>
+      </a>
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+      <nav class="navbar">
+        <ul>
+          <li>
+            <a href="/profile.html" class="hover-underline-animation">Profil</a>
+          </li>
+          <li>
+            <a href="" class="hover-underline-animation">Projets</a>
+          </li>
+          <li>
+            <a href="/contact.html" class="hover-underline-animation">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    
+    <div class="presentation">
+      <div class="mail">
+        <p>Vous pouvez m'envoyer un mail</p>
+        <a class="mail-adress" href="mailto:pierre-joseph.beaugendre@epitech.eu" target="_blank">
+          pierre-joseph.beaugendre@epitech.eu
+        </a>
+      </div>
+      <div class="division">
+        <i class="ou">OU</i>
+      </div>
+      <div class="technologies">
+        <p class="contact-p">Me contacter</p>
+        <div class="contact-logos">
+          <a href="https://www.linkedin.com/in/pjbeaugendre/" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 48 48" width="96px" height="96px"><path fill="#0288D1" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"/><path fill="#FFF" d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z"/></svg>
+          </a>
+          <a href="https://github.com/pjbeaugendre" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="96px" height="96px" fill-rule="evenodd"><g fill="#ffffff" fill-rule="evenodd" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8,8)"><path d="M16,4c-6.62891,0 -12,5.37109 -12,12c0,5.30078 3.4375,9.80078 8.20703,11.38672c0.60156,0.10938 0.82031,-0.25781 0.82031,-0.57812c0,-0.28516 -0.01172,-1.03906 -0.01562,-2.03906c-3.33984,0.72266 -4.04297,-1.60937 -4.04297,-1.60937c-0.54687,-1.38672 -1.33203,-1.75781 -1.33203,-1.75781c-1.08984,-0.74219 0.08203,-0.72656 0.08203,-0.72656c1.20313,0.08594 1.83594,1.23438 1.83594,1.23438c1.07031,1.83594 2.80859,1.30469 3.49219,1c0.10938,-0.77734 0.42188,-1.30469 0.76172,-1.60547c-2.66406,-0.30078 -5.46484,-1.33203 -5.46484,-5.92969c0,-1.3125 0.46875,-2.38281 1.23438,-3.22266c-0.12109,-0.30078 -0.53516,-1.52344 0.11719,-3.17578c0,0 1.00781,-0.32031 3.30078,1.23047c0.95703,-0.26562 1.98438,-0.39844 3.00391,-0.40234c1.01953,0.00391 2.04688,0.13672 3.00391,0.40234c2.29297,-1.55078 3.29688,-1.23047 3.29688,-1.23047c0.65625,1.65234 0.24609,2.875 0.12109,3.17578c0.76953,0.83984 1.23047,1.91016 1.23047,3.22266c0,4.60938 -2.80469,5.62109 -5.47656,5.92188c0.42969,0.36719 0.8125,1.10156 0.8125,2.21875c0,1.60547 -0.01172,2.89844 -0.01172,3.29297c0,0.32031 0.21484,0.69531 0.82422,0.57813c4.76563,-1.58984 8.19922,-6.08594 8.19922,-11.38672c0,-6.62891 -5.37109,-12 -12,-12z"></path></g></g></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>© Pierre-Joseph BEAUGENDRE. All rights reserved.</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/mouseee@1.2.0/lib/index.js" type="module"></script>
+    <script>
+      const mouseeeConfig = {
+        color: "#FF786E",
+        size: 20,
+        trailColor: "#FF9F20",
+        trailTime: 300,
+        showTrail: true,
+      }
+    </script>
   </body>
 </html>
