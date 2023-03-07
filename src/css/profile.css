@@ -86,7 +86,7 @@ body {
     transition: all 0.25s ease-out;
     width: 40px;
     min-width: 10%;
-    margin: 20px;
+    margin: 5px 20px;
 }
 
 .technologies-logo svg:hover {
@@ -99,7 +99,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 75px;
+    margin-bottom: 30px;
 }
 
 .mail p {
@@ -186,7 +186,7 @@ body {
     align-items: center;
     justify-content: center;
 	height: 100px;
-    margin: 75px 0px;
+    margin: 50px 0px;
 	place-items: center; 
 }
 
@@ -270,6 +270,90 @@ footer {
     text-align: center;
 }
 
+.projects {
+    height: fit-content;
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-columns: 44% 44%;
+    gap: 2%;
+    justify-content: space-around;
+    padding-bottom: 100px;
+}
+
+.single-project {
+    max-width: 400px;
+    min-width: 200px;
+    position: relative;
+    height: 300px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: all .4s;
+    border-radius: 5%;
+}
+
+.single-project img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(110%);
+}
+
+
+.project-description {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(53, 69, 59, 0.90);
+    transition: all .4s;
+    padding: 10px 10px;
+    line-height: 1.4;
+    border-radius: 5%;
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.project-description h3 a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 34px;
+    color: white;
+}
+
+.project-description h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-align: left;
+}
+
+.project-description h4 strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+}
+
+.project-description p {
+    padding-top: 10px;
+    font-size: 13px;
+    text-align: left;
+}
+
+.project-description p strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+}
+
+.single-project:hover .project-description {
+    visibility: visible;
+    opacity: 1;
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
 @media only screen and (max-width: 900px) {
     .presentation {
         width: 600px;
@@ -288,6 +372,29 @@ footer {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .projects {
+        grid-template-columns: 90%;
+        margin: auto;
+    }
+
+    .project-description h4 {
+        font-size: 14px;
+    }
+
+    .project-description h4 strong {
+        font-size: 16px;
+    }
+
+    .project-description p {
+        padding-top: 20px;
+        font-size: 12px;
+        text-align: left;
+    }
+    
+    .project-description p strong {
+        font-size: 16px;
     }
 }
 
