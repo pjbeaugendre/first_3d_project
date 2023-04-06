@@ -76,3 +76,32 @@ body
     transform: scaleX(1);
     transform-origin: bottom left;
 }
+
+.project-image-1 {
+    padding: 70px 50px;
+}
+
+.project-image-2 {
+    padding: 110px 20px;
+}
+
+.project-image-3 {
+    padding: 50px 80px;
+}
+
+.project-image-4 {}
+
+@media only screen and (max-width: 600px) {
+    .project-image-1 {
+        padding: 80px 10px;
+    }
+    .project-image-2 {
+        padding: 120px 10px;
+    }
+    .project-image-3 {
+        padding: 20px 10px;
+    }
+    .project-image-4 {
+        padding: 180px 10px;
+    }
+}
